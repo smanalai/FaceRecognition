@@ -1,0 +1,47 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	text-decoration: none;
+}
+.container {
+    max-width: 992px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.content-left h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+
+.content-left h2 {
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+
+
+
+.content-right {
+    max-width: 500px;
+    margin: auto;
+}
+
+
