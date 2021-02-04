@@ -7,8 +7,8 @@ import './ImageLinkForm.css';
 const ImageLinkForm = ({onInputChange, onButtonSubmit}) => {
 	return (
 		<div>
-		  <p className='f3'>
-	 		{"Let's detect faces in your pictures."} 
+		  <p className='f3 db pa3 lh-copy'>
+	 		{"Copy and paste an image URL below to detect the location of the face in the picture"} 
  		  </p>
 		  <div className='center'>
 		    <div className='form center pa4 br3 shadow-5'>
