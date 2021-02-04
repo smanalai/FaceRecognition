@@ -99,7 +99,7 @@ class App extends Component{
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            input: this.state.id,
+            input: this.state.input,
             id: this.state.user.id
           })
         })
