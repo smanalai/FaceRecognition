@@ -2,7 +2,7 @@ import react from 'react';
 import './FaceRecognitoin.css';
 
 
-const FaceRecognition = ({initialState}) => {
+const FaceRecognition = ({imageUrl, boxes}) => {
 	return (
 		<div className='center ma pa2'>
 		  <div style={{position:"relative"}}>

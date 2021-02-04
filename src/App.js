@@ -26,10 +26,6 @@ const particlesOptions = {
 }
 
 const initialState = {
-      input: '',
-      imageUrl: '',
-      boxes:[],
-      route: 'signin',
       isSignedIn: false,
       user: {
         id: '',
@@ -45,7 +41,12 @@ class App extends Component{
 
   constructor() {
     super();
-    this.state = initialState
+    this.state = initialState;
+    this.state = {
+      input: '',
+      imageUrl: '',
+      boxes:[],
+      route: 'signin',
   }
 
 
