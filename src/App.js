@@ -13,6 +13,12 @@ import './App.css';
 
 
 
+const app = new Clarifai.App({
+  apiKey: '25dabbe2a6864ff096f28c9634ec7f10'
+});
+
+
+
 const particlesOptions = {
   particles: {
     line_linked: {
@@ -26,6 +32,9 @@ const particlesOptions = {
 }
 
 const initialState = {
+      input: '',
+      imageUrl: '',
+      box:[],
       route: 'signin',
       isSignedIn: false,
       user: {
@@ -42,12 +51,8 @@ class App extends Component{
 
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box:[]
-}
-}
+    this.state = initialState;
+  }
   
 
   loadUser = (data) => {
@@ -86,14 +91,10 @@ class App extends Component{
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://face-recognition-search-engine.herokuapp.com/imageurl', {
-          method: 'post',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            input: this.state.input
-          })
-        })
-    .then(response => response.json())
+    app.models
+    .predict(
+      Clarifai.FACE_DETECT_MODEL,
+      this.state.input)
     .then(response => {
       if(response){
         fetch('https://face-recognition-search-engine.herokuapp.com/image', {
