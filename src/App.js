@@ -64,10 +64,10 @@ class App extends Component{
     const height = Number(image.height);
     return clarifaiFace.map(face => {
       return {
-        leftCol: width.left_col * width,
-        topRow: height.top_row * height,
-        rightCol: width - (width * face.right_col),
-        bottomRow: height - (height * face.bottom_row)
+        topRow: height * face.top_row,
+        leftCol: width * face.leftCol,
+        bottomRow: height - (height * face.bottom_row),
+        rightCol: width - (width * face.right_col)
     }
 
     });
