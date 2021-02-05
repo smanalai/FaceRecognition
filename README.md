@@ -9,9 +9,9 @@ This project contains the front end desgin of the Face Detection Engine web appl
 -  [X] Keeps track of number of URL entries
 
 ## Open-source libraries used
-- [Clarifai Face Detection API]('https://github.com/Clarifai/clarifai-javascript')
-- [Particles.js]('https://vincentgarreau.com/particles.js/#default')
-- [Tilt.js]('https://github.com/gijsroge/tilt.js')
+- [Clarifai Face Detection API](https://github.com/Clarifai/clarifai-javascript)
+- [Particles.js](https://vincentgarreau.com/particles.js/#default)
+- [Tilt.js](https://github.com/gijsroge/tilt.js)
 
 
 
