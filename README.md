@@ -1,4 +1,28 @@
-# Getting Started with Create React App
+# Face Detection Engine
+
+This project contains the front end desgin of the Face Detection Engine web application. The application enables users to detect the presence of one or more faces in pictures.
+
+## Features
+-  [X] Signup and Login 
+-  [X] Detection of one or more faces in an image
+-  [X] Search bar to paste the URL of an image
+-  [X] Keeps track of number of URL entries
+
+## Open-source libraries used
+- [Clarifai Face Detection API]('https://github.com/Clarifai/clarifai-javascript')
+- [Particles.js]('https://vincentgarreau.com/particles.js/#default')
+- [Tilt.js]('https://github.com/gijsroge/tilt.js')
+
+
+
+
+
+
+
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
