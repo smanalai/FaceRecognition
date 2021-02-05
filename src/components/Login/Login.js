@@ -53,7 +53,7 @@ class Login extends React.Component{
 					    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 					      <legend className="f4 center fw6 ph0 mh0">Log In</legend>
 					      <div className="mt3">
-					        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+					        <label className="db b--black fw6 lh-copy f6" htmlFor="email-address">Email</label>
 					        <input 
 					        	className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					        	type="email" 
@@ -62,7 +62,7 @@ class Login extends React.Component{
 					        	onChange={this.onEmailChange}/>
 					      </div>
 					      <div className="mv3">
-					        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+					        <label className="db b--black  fw6 lh-copy f6" htmlFor="password">Password</label>
 					        <input 
 					        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					        	type="password" 
