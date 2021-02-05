@@ -102,7 +102,7 @@ class App extends Component{
     .then(response => {
       if(response){
         const faceNum = response.outputs[0].data.regions.length
-        fetch('http://localhost:3000/image', {
+        fetch('https://face-recognition-search-engine.herokuapp.com/image', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
