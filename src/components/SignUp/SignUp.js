@@ -49,8 +49,8 @@ class SignUp extends React.Component {
 	  	  <div className="container">
 	  	    <div className="row justify-content-between">
 	  	      <div className="content-left">
-	  	        <h1> Face Search Engine</h1>
-	  	        <h2> Let's detect faces in your pictures</h2>
+	  	        <h1>Face Detection Engine</h1>
+	  	        <h2>Detect the presence of one or more faces in an image</h2>
 	  	      </div>
 	  	      <div className="content-right">
 			  	<article className="br3 ba b--black-10 mv4 mw5 shadow-5 center">
