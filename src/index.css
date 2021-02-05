@@ -1,9 +1,11 @@
 body {
   margin: 0;
-  font-family: "Ariel";
+  font-family: Courier, Monaco, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #58B3BC;
+  
+  
 
 }
 

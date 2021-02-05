@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
-import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import FaceDetection from './components/FaceDetection/FaceDetection';
 import Logo from './components/Logo/Logo';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-import Signin from './components/Signin/Signin';
-import Register from './components/Register/Register';
-import Rank from './components/Rank/Rank';
+import SearchBar from './components/SearchBar/SearchBar';
+import Login from './components/Login/Login';
+import SignUp from './components/SignUp/SignUp';
+import Entry from './components/Entry/Entry';
 import './App.css';
 
 
@@ -34,7 +34,7 @@ const particlesOptions = {
 const initialState = {
       input: '',
       imageUrl: '',
-      box:{},
+      box:[],
       route: 'signin',
       isSignedIn: false,
       user: {
@@ -65,19 +65,25 @@ class App extends Component{
   }})
 }
 
-  calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-    const image = document.getElementById('inputimage');
-    const width = Number(image.width);
-    const height = Number(image.height);
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
-
-  }
+ calculateFaceLocation = (data) => {
+   const clarifaiFace = data.outputs[0].data.regions.map( (box) => { return box.region_info.bounding_box})
+   
+   const image = document.getElementById('inputimage');
+   const width = Number(image.width);
+   const height = Number(image.height);
+   const box = clarifaiFace.map((face) => {
+   return {
+   leftCol: face.left_col * width,
+   topRow: face.top_row * height,
+   rightCol: width - (face.right_col * width),
+   bottomRow: height - (face.bottom_row * height)
+   }
+   
+   }
+   
+   );
+   return box;
+}
 
   displayFaceBox = (box) => {
     this.setState({box:box});
@@ -95,11 +101,13 @@ class App extends Component{
       this.state.input)
     .then(response => {
       if(response){
-        fetch('https://face-recognition-search-engine.herokuapp.com/image', {
+        const faceNum = response.outputs[0].data.regions.length
+        fetch('http://localhost:3000/image', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            id: this.state.user.id
+            id: this.state.user.id,
+            faceNum: faceNum
           })
         })
         .then(response => response.json())
@@ -136,19 +144,19 @@ class App extends Component{
           { route === 'home'
             ? <div> 
                 <Logo/>
-                <Rank
+                <Entry
                   name={this.state.user.name}
                   entries={this.state.user.entries}/>
-                <ImageLinkForm 
+                <SearchBar 
                   onInputChange={this.onInputChange} 
                   onButtonSubmit={this.onButtonSubmit}
                 />
-                <FaceRecognition box={box} imageUrl={imageUrl}/> 
+                <FaceDetection box={box} imageUrl={imageUrl}/> 
               </div>
             :(
               route === 'signin'
-              ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-              : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              ? <Login loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              : <SignUp loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
 
               )
         }
