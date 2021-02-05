@@ -3,6 +3,7 @@
 This project contains the front end desgin of the Face Detection Engine web application. The application enables users to detect the presence of one or more faces in pictures.
 
 ## Video Walkthrough
+<img src= 'https://github.com/smanalai/FaceRecognition/blob/master/demo.gif' style="vertical-align:middle" width="400" title='Nightwalker: Final Version'/>
 <img src= 'https://github.com/smanalai/FaceRecognition/blob/master/demo.gif' style="vertical-align:middle" width="400" title='Face Detection Engine/>
 ## Features
 -  [X] Signup and Login 
